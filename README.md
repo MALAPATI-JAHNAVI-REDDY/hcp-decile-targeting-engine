@@ -1,3 +1,5 @@
+See [FINDINGS.md](./FINDINGS.md) for the full analysis and business recommendations.
+
 # HCP Decile Targeting & Field Force Allocation Engine
 
 Segments healthcare providers into priority tiers based on real prescription
