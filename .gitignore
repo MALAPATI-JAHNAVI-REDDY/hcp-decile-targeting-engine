@@ -1,5 +1,4 @@
 raw/
-*.xlsx
 __pycache__/
 .DS_Store
 processed_hcp_targets.csv
