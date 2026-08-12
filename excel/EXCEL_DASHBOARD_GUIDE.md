@@ -61,4 +61,38 @@ Apply this directly on the raw `HCP_Targets` table (not the pivot):
 2. Go to **Home** → **Conditional Formatting** → **New Rule**.
 3. Choose **"Use a formula to determine which cells to format."**
 4. Enter the formula (adjust column letter to match your `priority_tier`
-   column, e.g. column J):
+   column, e.g. column J): =$J2="Tier 1 - High Priority"
+   5. Click **Format** → **Fill** tab → choose a highlight color (e.g., red/orange
+   for high priority) → **OK** → **OK**.
+6. Optional secondary rule for Tier 2 (yellow) and Tier 3 (green/grey), using
+   the same formula pattern with each tier label.
+7. To make Tier 1 rows stand out at a glance in the pivot table, also apply a
+   **Data Bar** or **Icon Set** on the `monthly_visit_target` column.
+
+---
+
+## 5. Suggested Dashboard Layout
+
+Create a final `Dashboard` sheet combining:
+- **KPI cards** (top row): Total HCPs, Total TRx, Total Monthly Visits,
+  Estimated Reps Needed — each linked via cell references to the pivot sheets.
+- **Left panel**: Specialty vs TRx PivotChart.
+- **Right panel**: Regional Workload PivotTable/Chart.
+- **Bottom table**: Filtered view (using a Slicer on `priority_tier`) showing
+  only Tier 1 HCPs and their assigned visit targets.
+
+To add a slicer:
+1. Click inside either PivotTable → **PivotTable Analyze** → **Insert Slicer**.
+2. Check **`priority_tier`** → **OK**.
+3. Right-click the slicer → **Report Connections** → connect it to both
+   PivotTables so filtering one filters both.
+
+---
+
+## 6. Refreshing Data
+
+Whenever `hcp_segmentation.py` is re-run and `processed_hcp_targets.csv` is
+updated:
+1. Go to **Data** tab → **Refresh All**.
+2. All PivotTables, charts, and conditional formatting will update
+   automatically since they're driven by the `HCP_Targets` table reference.
